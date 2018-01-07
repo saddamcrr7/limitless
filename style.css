@@ -228,24 +228,56 @@ Header styles
     font-style: italic;
     margin: 0;
 }
-.menu-primary-container a {
+.menu-primary-container a, .menu-footer a {
     font-size: 14px;
     text-transform: uppercase;
     text-decoration: none;
     color: #333;
 }
-.menu-primary-container ul{
+.menu-primary-container ul, .menu-footer ul{
     list-style: none;
 }
-.menu-primary-container li {
+.menu-primary-container li, .menu-footer li {
     margin-bottom: 12px;
 }
 @media all and (min-width: 600px) {
 
-  .menu-primary-container li {
+  .menu-primary-container li, .menu-footer li {
     display: inline-block;
     margin: 0 10px 0;
   }
+}
+.menu-footer {
+    text-align: center;
+}
+.menu-primary-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s;
+}
+.menu-toggle {
+  background: none;
+  border: none;
+  padding: 14px;
+  margin-top: 12px;
+  cursor: pointer;
+}
+.menu-toggle rect {
+  transition: transform 0.3s;
+}
+.menu-open .menu-toggle .top {
+  transform: translateY(8px);
+}
+.menu-open .menu-toggle .bottom {
+  transform: translateY(-8px);
+}
+@media all and ( min-width: 600px){
+    .menu-primary-container{
+        max-height: none !important;
+    }
+    .menu-toggle{
+        display: none;
+    }
 }
 
 /*------------------------------------------------ 

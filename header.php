@@ -6,17 +6,23 @@
         <?php wp_head(); ?> 
     </head>
     <body>
-    <header class="site-header">
+    <header id="site-header" class="site-header">
         <div class="title-container">
             <div class="site-title">
-               <a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a> 
+               <a href="<?php echo home_url(); ?>">
+                    <?php 
+                        if( has_custom_logo() ) {
+                            the_custom_logo();
+                        }else{
+                            bloginfo('name');
+                        }
+                    ?>
+               </a> 
             </div><!--/.site-title--> 
                 <?php if( get_bloginfo('description')) : ?> 
                     <p class="tagline"><?php bloginfo('description'); ?></p>
                 <?php endif; ?>
 
         </div><!--/.title-container--> 
-        <div class="menu-primary-container">
-            <?php wp_nav_menu(); ?> 
-        </div><!--/.menu-primary-container--> 
+        <?php get_template_part('/menus/menu', 'primary'); ?>
     </header>
